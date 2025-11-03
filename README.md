@@ -1,8 +1,8 @@
 # Examen parcial
 
-||||
+||Qué|Cómo|
 |:-:|:-:|:-:|
-Exámenes personalizados generados automáticamente basados en el código real de cada estudiante extraído de sus Pull Requests, salvo en los casos que el estudiante no haya entregado nada.|Responda 5 de las preguntas disponibles en su examen.|Las respuestas y justificaciones a las preguntas deben estar **exquisitamente enmarcadas** a lo debatido en clase.
+Exámenes personalizados generados a partir del código de cada estudiante extraído de sus PRs (excepto en los estudiantes que no han realizado ninguna entrega).|Elija y responda 5 de las preguntas que tiene disponibles.|Las respuestas y justificaciones deben estar **exquisitamente relacionadas** a lo debatido en clase y hacer uso del vocabulario y los términos y criterios aprendidos
 
 **Criterios de evaluación:**
 
