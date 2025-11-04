@@ -31,6 +31,15 @@ final double LUZ_ENCENCIDA = 0.6;
 
 ¿Qué observas en este código?
 
+En este código se observa la declaración de dos constantes final de tipo double. El problema está en un error ortográfico en el nombre de la constante LUZ_ENCENCIDA, ya que la palabra correcta es ENCENDIDA.
+Aunque el programa funciona igual, este error afecta a la claridad y la buena plegibilidad, porque los identificadores tienen que estar correctamente escritos y describir claramente su propósito.
+
+La corrección del código sería:
+
+final double PERSIANA_ABIERTA = 0.7;
+final double LUZ_ENCENDIDA = 0.6;
+
+
 ---
 
 ## Pregunta 2
@@ -44,6 +53,16 @@ for (int hora=0; hora<=24; hora++) {
 ```
 
 ¿Qué observas en este código?
+
+En este código se observa un bucle for que recorre la variable hora desde 0 hasta 24, utilizando la condición hora <= 24. Esto representa un error lógico, ya que como el objetivo es simular las horas de un día, el rango válido va de 0 a 23, porque en el formato de 24 horas no existe la hora 24. Con la condición actual, el bucle se ejecuta 25 veces en lugar de 24.
+
+La corrección sería cambiar la condición para que el bucle se detenga antes de llegar a 24, utilizando el operador < en lugar de <=. De esta forma, el recorrido será de 0 a 23, cumpliendo correctamente las 24 iteraciones esperadas.
+
+La corrección del código sería:
+
+for (int hora = 0; hora < 24; hora++) {
+    // ...
+}
 
 ---
 
@@ -66,6 +85,34 @@ for (int planta=1; planta<=7; planta++) {
 
 ¿Qué observas en este código?
 
+En este código se observa un doble bucle que recorre las plantas y columnas de un edificio, generando aleatoriamente si una persiana está abierta y si la luz está encendida. La observación principal está en el uso de operadores ternarios anidados dentro del System.out.println, lo que hace el código difícil de leer y mantener. Además, se mezclan System.out.println y System.out.print, lo que puede provocar que el formato del dibujo del edificio no quede bien alineado.
+
+Aunque el código puede funcionar correctamente, yo creo que es mejor separar las condiciones y usar sentencias if normales para mejorar la claridad.
+
+La corrección del código sería:
+
+for (int planta = 1; planta <= 7; planta++) {
+    for (int columna = 1; columna <= 6; columna++) {
+        abierta = Math.random() < PERSIANA_ABIERTA;
+        encendida = Math.random() < LUZ_ENCENDIDA;
+
+        if (!abierta) {
+            System.out.print(VENTANA_CERRADA);
+        } else {
+            if (encendida) {
+                System.out.print(VENTANA_ABIERTA_CON_LUZ);
+            } else {
+                System.out.print(VENTANA_ABIERTA_SIN_LUZ);
+            }
+        }
+
+        if (columna == 3) {
+            System.out.print(SEPARADOR);
+        }
+    }
+    System.out.println();
+}
+
 ---
 
 ## Pregunta 4
@@ -86,6 +133,23 @@ if (cantidad >= 100) {
 ```
 
 ¿Qué observas en este código?
+
+En este código se observa que se están utilizando tres sentencias if independientes para asignar el valor del descuento según la cantidad. Esto representa otro error lógico, ya que cuando la variable cantidad es mayor o igual a 100, las tres condiciones se cumplen y el valor de descuento se reasigna varias veces. Aunque finalmente quede en 0.15, la forma en que está estructurado no es correcta.
+
+La solución es usar una estructura if, else if,  else if, de manera que solo se cumpla una condición y se asigne un único valor de descuento. Además, las condiciones deben evaluarse de mayor a menor para que se aplique correctamente el descuento más alto.
+
+El código corregido sería este:
+
+double descuento = 0.0;
+
+if (cantidad >= 100) {
+    descuento = 0.15;
+} else if (cantidad >= 50) {
+    descuento = 0.10;
+} else if (cantidad >= 10) {
+    descuento = 0.05;
+}
+
 
 ---
 
@@ -114,6 +178,17 @@ cambio = cambio % 1;
 ```
 
 ¿Qué observas en este código?
+
+En este código se observa que se realiza una división y un módulo por 1. Esto representa una operación innecesaria, ya que dividir o sacar el resto de una división entre 1 no cambia el valor de la variable.
+No genera un error en la ejecución, pero es una instrucción redundante que no aporta nada al cálculo del cambio.
+
+La corrección consiste en eliminar esas líneas o en incluirlas solo si se desea mantener la coherencia del algoritmo de monedas, pero sin realizar operaciones inútiles.
+
+La corrección del código sería:
+
+int monedas1 = cambio; 
+cambio = 0;
+
 
 ---
 
